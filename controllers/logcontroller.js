@@ -91,11 +91,11 @@ router.put('/update/:id', function(req, res) {
     console.log(logOwn);
 
     Log.update({
-        description: newDesc,
-        result: newRes
+        description: req.body.log.description,
+        result: req.body.log.result
     },
     {where: { 
-        id: data,
+        id: req.params.id,
         owner: logOwn
     }
     }).then(
